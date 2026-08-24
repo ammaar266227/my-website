@@ -7,8 +7,9 @@ import routers
 
 app = FastAPI(title="M.J. Ammaar | Official Website")
 
-if not os.path.exists("uploads"):
-    os.makedirs("uploads")
+# Safely check for uploads folder without trying to create directories on read-only server
+if os.path.exists("uploads"):
+    app.mount("/static", StaticFiles(directory="uploads"), name="static")
 
 app.add_middleware(
     CORSMiddleware,
@@ -18,7 +19,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.mount("/static", StaticFiles(directory="uploads"), name="static")
 app.include_router(routers.router)
 
 
