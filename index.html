@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.J. AMMAAR | Official Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #080a0f;
+            --card-bg: #111622;
+            --card-border: #1e293b;
+            --accent-gold: #d97706;
+            --accent-gold-glow: rgba(217, 119, 6, 0.35);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        body {
+            font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(217, 119, 6, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 100% 100%, rgba(30, 41, 59, 0.5) 0%, transparent 50%);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Container & Responsive Width */
+        .container { 
+            width: 100%; 
+            max-width: 680px; 
+            margin: 0 auto;
+        }
+
+        .cr7-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            padding: 45px 35px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .cr7-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        /* Hero Avatar Frame */
+        .avatar-wrapper {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 25px;
+        }
+
+        .avatar-frame {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-gold);
+            box-shadow: 0 0 25px var(--accent-gold-glow);
+        }
+
+        .avatar-frame img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+        }
+
+        /* Typography */
+        .brand-badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            background: rgba(217, 119, 6, 0.1);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: 34px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .tagline {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+
+        .bio-text {
+            color: #cbd5e1;
+            line-height: 1.7;
+            font-size: 15px;
+            margin-bottom: 35px;
+            font-weight: 400;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 35px;
+            width: 100%;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 18px;
+            border-radius: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .stat-box:hover { 
+            border-color: rgba(217, 119, 6, 0.4); 
+        }
+
+        .stat-number {
+            font-size: 26px;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: 1px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-top: 4px;
+        }
+
+        /* CR7 Social Buttons */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .social-btn {
+            text-decoration: none;
+            color: var(--text-main);
+            background: #1e293b;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.25s ease;
+        }
+
+        .social-btn:hover {
+            background: var(--accent-gold);
+            color: #000;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 18px var(--accent-gold-glow);
+            transform: translateY(-3px);
+        }
+
+        /* Visitor Message Section */
+        .comments-section {
+            text-align: left;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 30px;
+            width: 100%;
+        }
+
+        .comments-title {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .form-group { 
+            margin-bottom: 12px; 
+            width: 100%;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            background: #0b0f17;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-main);
+            padding: 12px;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .post-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--accent-gold), #b45309);
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .post-btn:hover { 
+            opacity: 0.9; 
+        }
+
+        .msg-card {
+            background: #0b0f17;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="cr7-card">
+            
+            <div class="avatar-wrapper">
+                <div class="avatar-frame">
+                    <img id="display-photo" src="/static/20241106_172219.png" alt="Profile Photo">
+                </div>
+            </div>
+
+            <span class="brand-badge">Official Hub</span>
+            <h1 id="display-name">M.J. AMMAAR</h1>
+            <div class="tagline" id="display-title">Graphic Designer & Harball Cricket Player</div>
+            <p class="bio-text" id="display-bio">Loading details...</p>
+
+            <!-- Stats Bar -->
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number" id="display-stat1-val">0</div>
+                    <div class="stat-label" id="display-stat1-label">Members</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" id="display-stat2-val">0</div>
+                    <div class="stat-label" id="display-stat2-label">Projects</div>
+                </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a id="link-instagram" href="#" target="_blank" class="social-btn">Instagram</a>
+                <a id="link-twitter" href="#" target="_blank" class="social-btn">X / Twitter</a>
+                <a id="link-youtube" href="#" target="_blank" class="social-btn">YouTube</a>
+                <a id="link-tiktok" href="#" target="_blank" class="social-btn">TikTok</a>
+            </div>
+
+            <!-- Public Visitor Messages -->
+            <div class="comments-section">
+                <div class="comments-title">Fan & Visitor Messages</div>
+                <form id="message-form" onsubmit="postMessage(event)" style="margin-bottom: 25px;">
+                    <div class="form-group">
+                        <input type="text" id="msg-name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="msg-text" placeholder="Leave a message..." rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="post-btn">Send Message</button>
+                </form>
+
+                <div id="messages-list" style="display: flex; flex-direction: column; gap: 12px;"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Smart URL: Works for local file testing AND live domains
+const BASE_URL = window.location.protocol === 'file:' 
+    ? 'http://127.0.0.1:8000/api' 
+    : '/api';
+
+window.onload = async () => {
+    await loadProfile();
+    await loadMessages();
+};
+
+async function loadProfile() {
+    try {
+        const res = await fetch(`${BASE_URL}/profile`);
+        if (!res.ok) throw new Error("API returned " + res.status);
+        const data = await res.json();
+        
+        document.getElementById("display-name").innerText = data.name;
+        document.getElementById("display-title").innerText = data.title;
+        document.getElementById("display-bio").innerText = data.bio;
+        document.getElementById("display-stat1-label").innerText = data.stat1_label;
+        document.getElementById("display-stat1-val").innerText = data.stat1_val;
+        document.getElementById("display-stat2-label").innerText = data.stat2_label;
+        document.getElementById("display-stat2-val").innerText = data.stat2_val;
+        
+        if (data.photo_url) {
+            document.getElementById("display-photo").src = data.photo_url;
+        }
+
+        document.getElementById("link-instagram").href = data.instagram;
+        document.getElementById("link-twitter").href = data.twitter;
+        document.getElementById("link-youtube").href = data.youtube;
+        document.getElementById("link-tiktok").href = data.tiktok;
+    } catch (err) {
+        console.error("Error loading profile:", err);
+    }
+}
+
+async function loadMessages() {
+    try {
+        const res = await fetch(`${BASE_URL}/messages`);
+        if (!res.ok) throw new Error("API returned " + res.status);
+        const data = await res.json();
+        const container = document.getElementById("messages-list");
+        
+        container.innerHTML = data.map(msg => `
+            <div class="msg-card">
+                <div style="display: flex; justify-content: space-between; font-size: 12px; font-weight: 800; color: var(--accent-gold);">
+                    <span>${msg.name}</span>
+                    <span style="font-weight: 400; color: var(--text-muted); font-size: 10px;">${msg.time}</span>
+                </div>
+                <p style="margin: 6px 0 0; font-size: 13px; color: #cbd5e1;">${msg.message}</p>
+            </div>
+        `).join('');
+    } catch (err) {
+        console.error("Error loading messages:", err);
+    }
+}
+
+async function postMessage(e) {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("name", document.getElementById("msg-name").value);
+    formData.append("message", document.getElementById("msg-text").value);
+
+    try {
+        const res = await fetch(`${BASE_URL}/messages`, { method: "POST", body: formData });
+        if (res.ok) {
+            document.getElementById("msg-text").value = "";
+            document.getElementById("msg-name").value = "";
+            await loadMessages();
+        }
+    } catch (err) {
+        alert("Error sending message.");
+    }
+}
+    </script>
+</body>
+</html>
